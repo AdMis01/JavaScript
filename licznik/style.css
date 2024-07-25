@@ -1,0 +1,24 @@
+#poleNumer{
+    display: block;
+    text-align: center;
+    font-size: 8em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box{
+    text-align: center;
+}
+button{
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: rgb(85, 137, 216);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.25s;
+}
+
+button:hover{
+    background-color: rgb(37, 77, 138);
+}
