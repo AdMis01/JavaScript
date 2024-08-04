@@ -1,3 +1,5 @@
+//Oby dwa dają ten sam wynik w tym przypadku komunikat
+
 let wiek = 16;
 let komunikat = "";
 
