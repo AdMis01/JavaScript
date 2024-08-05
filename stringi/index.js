@@ -66,5 +66,8 @@ let drugiCzlono = usinanie.slice(5,13);
 // ucinania
 console.log(drugiCzlono)
 
+let odTylu = usinanie.slice(-1);
+// a 
+console.log(odTylu)
 
 
