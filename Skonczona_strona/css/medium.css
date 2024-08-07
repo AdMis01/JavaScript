@@ -1,0 +1,20 @@
+header h1 {
+  font-size: 42px;
+}
+
+header .hero-text p {
+  font-size: 20px;
+}
+
+#prices .price-wrap {
+  width: 90%;
+}
+
+#prices .price-info {
+  font-size: 23px;
+}
+
+#team .card-body {
+  height: 150px;
+}
+/*# sourceMappingURL=medium.css.map */

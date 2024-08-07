@@ -1,0 +1,394 @@
+$blue-color: #039dff
+    
+*, *::after, *::before
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+html
+    scroll-behavior: smooth
+
+body
+    position: relative
+    font-family: 'Montserrat', sans-serif
+    background-color: #333
+
+h2
+    text-transform: uppercase
+    text-align: center
+
+.blue-text
+    color: $blue-color
+
+.wrapper
+    max-width: 2560px
+    width: 80%
+    margin: 0 auto
+
+.underline
+    margin: 0 auto 40px
+    width: 60px
+    height: 4px
+    background-color: $blue-color
+
+.scroll-fix::before
+    display: block
+    margin-top: -66px
+    height: 66px
+    content: ''
+
+.visibility
+    visibility: hidden
+
+.jumbotron
+    margin: 0
+
+
+// NAWIGACJA
+nav
+    text-transform: uppercase
+    transition: background-color .6s 
+
+
+    a, i
+        color: #fff
+        transition: color .3s
+
+    a:hover
+        color: $blue-color
+
+    i
+        padding: 10px
+
+    .navbar-brand
+        font-weight: bold
+
+    .active 
+        color: $blue-color
+
+.shadow-bg
+    background-color: rgba(0,0,0,.8)
+
+// HEADER
+header 
+    color: #fff
+    overflow: hidden
+
+    h1
+        padding: 10px
+        text-transform: uppercase
+        font-size: 30px
+
+    .hero-img
+        position: relative
+        height: 100vh
+        background-image: url('../img/hero-img.jpg')
+        background-position: center
+        background-size: cover
+        background-attachment: fixed
+        z-index: 0
+
+    .hero-shadow
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,.8)
+        z-index: -10
+
+    .hero-text 
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        height: 100%
+        text-align: center
+
+        p
+            padding: 10px
+            font-size: 14px
+
+    .btn-outline-light
+        text-transform: uppercase
+
+    .fa-chevron-down
+        display: none             
+
+
+// MAIN
+#aboutus
+    i
+        margin-top: 20px
+        font-size: 30px
+
+    h3
+        font-size: 18px
+        text-transform: uppercase
+
+    p
+        font-size: 14px
+
+    .aboutus-hover
+        transition: color .3s
+
+    .aboutus-hover:hover
+        color: $blue-color
+
+#aboutus-hero
+    color: #ddd
+    overflow: hidden
+
+    .jumbotron
+        position: relative
+        padding: 60px 0
+        background-image: url('../img/about-hero.jpg')
+        background-position: center
+        background-size: cover
+        z-index: 0
+
+        h2
+            font-size: 32px
+
+        i
+            font-size: 35px
+
+        p
+            font-size: 14px
+
+    .about-shadow
+        position: absolute
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,.7)
+        z-index: -10
+   
+    .about-hero-item
+        margin: 10px 0
+
+// PORTFOLIO
+#portfolio
+    .carousel-item
+        position: relative
+        height: 600px
+
+        img
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+
+    .carousel-caption
+        position: absolute
+        left: 0
+        right: 0
+        padding: 40px 0
+        background-color: rgba(0,0,0,.8)
+
+    .carousel-indicators
+        padding-bottom: 20px
+
+// CENY
+#prices
+    .jumbotron
+        background-color: #f9f9f9
+
+    .price-wrap
+        max-width: 2560px
+        width: 95%
+        margin: 0 auto
+
+    .price-box
+        margin: 20px 10px
+        padding: 30px
+        background-color: #fff
+        box-shadow: 5px 5px 5px rgba(0,0,0,.6)
+        transition: transform .3s
+
+        h3
+            color: $blue-color
+            text-transform: uppercase
+
+        span
+            font-weight: bold
+        
+        i
+            padding: 0 5px
+            font-size: 23px
+
+        button
+            padding: 10px 20px
+            text-transform: uppercase
+
+        .price
+            font-size: 30px
+            font-weight: bold
+
+    .price-box:hover
+        transform: scale(1.05)
+
+    .price-text
+        margin-top: 30px
+
+
+// TEAM
+#team
+    .jumbotron
+        position: relative
+        background-image: url('../img/room-hero.jpg')
+        background-attachment: fixed
+        background-size: cover
+        z-index: 0
+
+        h2
+            color: #ddd
+
+    .team-shadow
+        position: absolute
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,.8)
+
+    .card
+        transition: transform .3s
+
+        img
+            height: 300px
+            object-fit: cover
+
+        i
+            padding: 10px 20px
+
+        .row
+            margin-left: 0
+            margin-right: 0
+
+    .card:hover
+        transform: scale(.96)
+
+    .card-body
+        height: 150px
+
+    .card-title
+        text-transform: uppercase
+        font-weight: bold
+        text-align: center
+
+    .card-text
+        font-size: 14px
+
+
+// OSIĄGNIĘCIA
+#achievements
+    .achievement-list
+        padding: 20px 0
+
+    .achievement
+        text-align: center
+
+    i
+        padding: 10px
+        font-size: 48px
+        color: #fff
+        text-shadow: 0 0 5px black
+
+    .achievement-number
+        font-size: 22px
+
+    .achievement-text
+        font-size: 13px
+        text-transform: uppercase
+        
+// KONTAKT
+#contact
+    .jumbotron
+        position: relative
+        background-image: url(../img/contact-hero.jpg)
+        background-position: bottom
+        background-attachment: fixed
+        background-size: cover
+        z-index: 0
+
+        h2
+            color: #fff
+            font-weight: bold
+
+        .underline
+            background-color: #ccc
+
+
+    .contact-shadow
+        position: absolute
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0,9,27,.85)
+        z-index: -10
+
+    .contact-us
+        display: flex
+        align-items: center
+        color: #fff
+
+        .contact-item
+            margin: 30px 0
+
+            h3
+                margin-bottom: 15px
+                text-transform: uppercase
+                letter-spacing: 2px
+
+            .social-media
+                font-size: 26px
+
+                a
+                    padding: 10px
+                    color: #fff
+                    text-shadow: 0 0 5px black
+
+                a:hover
+                    color: #ccc
+
+// FOOTER
+footer 
+    color: #fff
+
+    p
+        padding: 20px
+        margin-bottom: 0
+        text-align: center
+
+
+@media (min-width: 375px)
+    header 
+        h1
+            font-size: 36px
+
+        .hero-text
+            p
+                font-size: 16px
+
+    #aboutus-hero
+        .jumbotron
+            h2
+                font-size: 36px
+
+            h3
+                font-size: 32px
+
+            p
+                font-size: 18px
+
+    #team
+        .card-text
+            font-size: 15px
+
+@media (min-width: 411px)
+    #aboutus-hero
+        .jumbotron
+            padding: 80px 0
+
+@media (min-width: 500px)
+    #team
+        .card-body
+            height: 120px
