@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Generowanie hasel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Generowanie haseł</h1>
+    <label for="iloscZnakow">Podaj ilość znaków:</label>
+    <input type="number" name="" id="iloscZnakow"><br>
+    <label for="mL">Czy twoje hasło ma zawierać małe litery ?</label>
+    <input type="checkbox" name="" id="mL"><br>
+    <label for="dL">Czy twoje hasło ma zawierać duże litery ?</label>
+    <input type="checkbox" name="" id="dL" checked><br>
+    <label for="dL">Czy twoje hasło ma zawierać liczby ?</label>
+    <input type="checkbox" name="" id="li"><br>
+    <label for="dL">Czy twoje hasło ma zawierać znaki specjalne ?</label>
+    <input type="checkbox" name="" id="sym"><br>
+    <button id="buttonGenerujacy">Generuj hasło</button>
+    <p id="wynik"></p>
     <script src="index.js"></script>
 </body>
 </html>
