@@ -35,3 +35,5 @@ function potega(element,index,tab){
 function wyswietl(elementy){
     console.log(elementy);
 }
+
+
