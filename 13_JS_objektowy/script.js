@@ -82,6 +82,99 @@ class MathUtil{
     static getDiameter(promien){
         return promien * 2;
     }
+    
 }
 console.log(MathUtil.PI);
-console.log(MathUtil.getDiameter(10)); 
+console.log(MathUtil.getDiameter(10));
+
+//inheritance - dziedziczenie 
+
+class Zwierze{
+    alive = true;
+
+    eat(){
+        console.log(`to zwierze je ${this.name}`)
+    }
+    sleep(){
+        console.log(`to zwierze spi ${this.name}`)
+    }
+}
+
+class Krolik extends Zwierze{
+    name = "Krolik";
+    run(){
+        console.log(`${this.name} potrafi biegac`);
+    }
+}
+
+class Ryba extends Zwierze{
+    name = "Ryba";
+}
+
+const krolik = new Krolik();
+const ryba = new Ryba();
+
+krolik.alive = false;
+krolik.run();
+ryba.eat();
+ryba.sleep();
+
+console.log(krolik.alive);
+
+//super - pozwala na dostep do metod rodzica 
+
+class Animal{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    move(speed){
+        console.log(`${this.name} moves at a speed of ${speed}`);
+    }
+}
+class Rabbit extends Animal{
+    constructor(name,age,runSpeed){
+        super(name,age);
+        this.runSpeed = runSpeed;
+    }
+    run(){
+        console.log(`${this.name} can run`);
+        super.move(this.runSpeed);
+    }
+}
+
+class Fish extends Animal{
+    constructor(name,age,swimSpeed){
+        super(name,age);
+        this.swimSpeed = swimSpeed;
+    }
+    swim(){
+        console.log(`${this.name} can swim`);
+        super.move(this.swimSpeed);
+
+    }
+}
+
+class Hawk extends Animal{
+    constructor(name,age,flySpeed){
+        super(name,age);
+        this.flySpeed = flySpeed;
+    }
+    fly(){
+        console.log(`${this.name} can fly`);
+        super.move(this.flySpeed);
+
+    }
+}
+
+const rabbit = new Rabbit("rabit",1,25);
+const fish = new Fish("fish",2,12);
+const hawk = new Hawk("rabit",3,50);
+
+console.log(rabbit.name);
+console.log(fish.age);
+console.log(hawk.flySpeed);
+
+rabbit.run();
+fish.swim();
+hawk.fly();
