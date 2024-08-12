@@ -178,3 +178,48 @@ console.log(hawk.flySpeed);
 rabbit.run();
 fish.swim();
 hawk.fly();
+
+//getery i setery - pobieranie lub ustawianie wartosci atrybutow
+
+class Rectangle{
+    constructor(width,height){
+        this.width = width;
+        this.height = height;
+    }
+    set width(newWidth){
+        if(newWidth >= 0){
+            this._width = newWidth;
+        }else{
+            console.error("width musi byc pozytywnym numerem");
+        }
+    }
+    set height(newHeight){
+        if(newHeight >= 0){
+            this._height = newHeight;
+        }else{
+            console.error("height musi byc pozytywnym numerem");
+        }
+    }
+    get width(){
+        return this._width.toFixed(1);
+    }
+
+    get height(){
+        return this._height.toFixed(1);
+    }
+
+    get area(){
+        return this.width*this.height.toFixed(1);
+        //        return this._width*this._height;
+
+    }
+}
+
+const rectangle = new Rectangle(3,4);
+
+rectangle.width = 5;
+rectangle.height = 6;
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
