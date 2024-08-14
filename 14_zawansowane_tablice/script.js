@@ -209,3 +209,100 @@ function shuffle(array){
     }
 }
 
+
+//Date objects 
+
+//const date = new Date();
+//Date(year,month,day,hour,minute,second,ms)
+//const date = new Date(2024, 9, 11);
+//const date = new Date("2024-01-02");
+//const date = new Date(0);
+const date = new Date();
+
+const year = date.getFullYear();
+const month = date.getMonth();
+const day = date.getDate();
+const hour = date.getHours();
+const miniute = date.getMinutes();
+const second = date.getSeconds();
+const dayOfWeed = date.getDay();
+
+date.setFullYear(2030);
+date.setMonth(0);
+date.setDate(1);
+date.setHours(2);
+date.setMinutes(4);
+date.setSeconds(6);
+console.log(date);
+
+const date1 = new Date("2023-12-31");
+const date2 = new Date("2023-10-31");
+//const date2 = new Date("2024-01-01");
+
+if(date2 > date1){
+    console.log("Happy new year!");
+}
+
+//Closure - funkcja zdefiniowana w innej funkcji 
+
+function outer(){
+
+    let message = "hello";
+
+    function inner(){
+        console.log(message);
+    }
+    inner();
+}
+
+outer();
+
+function createCounter(){
+    let count = 0;
+    function increment(){
+        count++;
+        console.log(`count increased to ${count}`);
+    
+    }
+
+    function getCount(){
+        return count;
+    }
+
+    return {increment,getCount};
+}
+
+const counter = createCounter();
+
+counter.increment();
+counter.increment();
+counter.increment();
+
+console.log(counter.getCount());
+
+//setTimeOut() - jest to funkcja ktora opoznia dzialanie jakis rzeczy po czasie 
+
+function sayHello(){
+    window.alert("hello");
+}
+
+setTimeout(sayHello(),3000);
+
+setTimeout(function(){console.log("inter")},3000);
+
+setTimeout(() => { console.log("siema strzalkowa")},3000);
+
+const timeOutId = setTimeout(() => window.alert("hello do wyczyszczenia"),4000);
+
+clearTimeout(timeOutId);
+
+let timeId;
+
+function startTimer(){
+    timeId = setTimeout(() => {console.log("nacisniety przycisk")},4000);
+}
+
+function clearTimer(){
+    clearTimeout(timeId);
+    console.log("skasowano");
+}
