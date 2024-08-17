@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Form Validation</h1></header>
+    <main>
+        <form action="/" method="POST" class="form-flex">
+            <div>
+                <div class="jt">
+                    <input id="mail" type="text" placeholder="Email" >
+                    <div class="errorMail"></div>
+                </div>
+                <div class="jt"></div>
+            </div>
+            <div>
+                <div class="jt">
+                    <input id="password" type="password" placeholder="Hasło" >
+                    <div class="passError"></div>
+                </div>
+                <div class="jt">
+                    <input id="dubPassword" type="password" placeholder="Ponów hasło" >
+                    <div class="passError2"></div>
+                </div>
+            </div>
+            <div>
+                <div class="jt">
+                    <input id="username" type="text" placeholder="Imie" class="test">
+                    <div class="usernameError"></div>
+                </div>
+                <div class="jt">
+                    <input id="name" type="text" placeholder="Nazwisko" class="test">
+                    <div class="nameError"></div>
+                </div>
+            </div>
+            <div>
+                <div class="jt">
+                    <input id="adres" type="text" placeholder="Adres" class="test">
+                    <div class="errorAdress"></div>
+                </div>
+                <div class="jt"></div>
+            </div>
+            <div>
+                <div class="jt">
+                    <input id="kodP" type="text" placeholder="Kod pocztowy" >
+                    <div class="errorkodP"></div>
+                </div>
+                <div class="jt">
+                    <input id="woj" type="text" placeholder="Województwo" class="test" >
+                    <div class="errorWoj"></div>
+                </div>
+            </div>
+            <div>
+                <div class="jt">
+                    <input id="city" type="text" placeholder="Miejscowość"class="test" >
+                    <div class="errorCity"></div>
+                </div>
+                <div class="jt">
+                   <div class="flex-mini"> <input id="startTel" type="text" value="+48" placeholder="NR KIER"><input id="tel" type="text" placeholder="TELEFON" ></div>
+                   <div class="errorTel"></div>
+                </div>
+            </div>
+            <input type="submit" value="Prześli">
+        </form>
+        <div class="pods">
+            <button type="button" class="close">x</button>
+            <ul class="p">
+                <li>Twoje dane:</li>
+            </ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

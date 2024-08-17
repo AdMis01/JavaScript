@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Rubik ,sans-serif
+}
+header{
+    width: 100%;
+    height: 10vh;
+    background-color: #202020;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 10vh;
+    font-size: 1.5rem;
+}
+main{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-flex{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+.form-flex div{
+    display: flex;
+}
+.form-flex div .jt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+input{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid #636363;
+    outline: none;
+    padding-left: 5px;
+}
+input:active,input:focus,input:hover{
+    border-bottom-color: #101010;
+}
+input[type=submit]{
+    border: none;
+    background-color: #202020;
+    font-size: 1.2rem;
+    width: 20%;
+    color: white;
+    margin: 1rem;
+    text-align: center;
+}
+input[type=submit]:hover,input[type=submit]:active{
+    background-color: #202020;
+}
+.form-flex div .jt #startTel{
+    width: 17%;
+    text-align: center;
+    padding: 0;
+}
+#tel{
+    width: 72%;
+}
+.form-flex div .jt .flex-mini{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+}
+.form-flex div .jt div{
+    font-size: .8rem;
+    margin-top: 5px;
+    color: red;
+}
+.form-flex div .jt div i{
+    padding-top: 2px;
+}
+.pods{
+    display: none;
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border: 2px solid #202020;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.pods li{
+    padding: 5px;
+}
+.pods.show{
+    display: block;
+}
+.pods button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 2px solid #202020;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+}
+.pods button:hover,.pods button:focus,.pods button:active{
+    background-color: #202020;
+    color: white;
+}
+@media (min-width: 992px){
+    input{
+        width: 80%;
+    }
+    .form-flex div .jt .flex-mini{
+        width: 80%;
+    }
+}

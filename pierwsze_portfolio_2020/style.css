@@ -1,0 +1,356 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+header{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: 2rem;
+    z-index: 100;
+}
+header .header-left{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container-hamburger{
+    padding: 16px;
+}
+header .header-left span,nav .gora span{
+    color: red;
+}
+.ham{
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+nav{
+    z-index: 50;
+    transition: .2s;
+}
+nav.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.gora{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav .menu{
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(51, 51, 51);
+    transition: .2s;
+}
+.active.menu{
+    left: 0;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50vh;
+    margin-left: 2rem;
+    list-style-type: none;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    transition: .2s;
+}
+
+ul li a i{
+    margin-right: 1rem;
+}
+.media{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+}
+.media a{
+    margin: 1rem;
+    color: white;
+    font-size: 2.2rem;
+
+}
+ul li a:hover,.media a:hover{
+    color: red;
+}
+.home{
+    height: 90vh;
+    width: 100%;
+    background-color: rgb(170, 168, 168);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.home .photo-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+    height: 70%;
+    background-color: rgb(34, 34, 34);
+    border-radius: 10px;
+}
+.home .photo-con .photo{
+    width: 80%;
+    height: 60%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.home .photo-con p{
+    width: 70%;
+    height: 20%;
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+}
+section{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(170, 168, 168);
+    color: white;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.moveUp{
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    right: 2.5rem;
+    bottom: 1rem;
+    font-size: 3rem;
+    color: white;
+    transition: 1s;
+}
+.moveUp.sho{
+    visibility: visible;
+    opacity: 1;
+}
+main section .container{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.tag{
+    position: relative;
+    width: 20%;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.tag .underline{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background-color: red;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+main .container a{
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+main .spros{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+main .img-con{
+    justify-self: center;
+    width: 200px;
+    height: 300px;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items:  center;
+}
+main .text{
+    align-self: center;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.project-cont{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.project{
+    width: 80%;
+    height: 420px;
+    background-color: rgb(56, 52, 52);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;   
+}
+.project .subText,.project .akapit{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 2.2rem;
+}
+.project .photo{
+    background-image: url('propaganda.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+}
+.project .photo2{
+    background-image: url('bac.jpg');
+    background-size:contain;
+    height: 45%;
+}
+.project .tech{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+.project .link{
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+.container .skill{
+    width: 50%;
+    height: 10%;
+    background-color: rgb(56, 52, 52);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+.container .skill .title{
+    color: white;
+    font-size: 1.3rem;
+}
+.container .skill .progress-bar{
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+.container .skill .progress-bar .progress{
+    height: 60%;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+.container .skill .progress-bar .html{
+    width: 60%;
+}
+.container .skill .progress-bar .css{
+    width: 50%;
+}
+.container .skill .progress-bar .js{
+    width: 30%;
+}
+.container .skill .progress-bar .php{
+    width: 15%;
+}
+footer{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    background-color: rgb(51, 51, 51);
+    line-height: 10vh;
+    color: white;
+    font-size: 1.5rem;
+}
+@media (max-width: 992px) {
+    .home .photo-con{
+        width: 50%;
+    }
+
+}
+@media (max-width: 768px) {
+    .tag{
+        width: 30%;
+    }
+    .project-cont{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: 20px;
+    }
+    .project-cont .project{
+        width: 60%;
+    }
+    #project{
+        height: 150vh;
+    }
+    .home .photo-con{
+        width: 60%;
+    }
+    main .spros{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+}
+@media (max-width: 568px) {
+    .project-cont .project{
+        width: 80%;
+    }
+    .container .skill{
+        width: 70%;
+    }
+    .tag{
+        width: 40%;
+    }
+    header .header-left{
+        width: 70%;
+    }
+}
