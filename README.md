@@ -6,3 +6,5 @@
 ![portfolio](https://github.com/user-attachments/assets/e40d151a-f694-4dc5-904c-094a4924c2c3)
 ![portfolio](https://github.com/user-attachments/assets/f3173fdf-e0c4-4016-9249-6b8845e93220)
 ![portfolio](https://github.com/user-attachments/assets/3a475851-af08-4c3d-bb12-6c09eba9143f)
+
+Proszę nie patrzeć na tytuły projektów iż są basicowe
