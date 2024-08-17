@@ -1,0 +1,45 @@
+
+#myDiv{
+    background-color: lightblue;
+    width: 300px;
+    height: 300px;
+    font-size: 4.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#testBox{
+    background-color: lightcoral;
+    width: 200px;
+    height: 200px;
+    font-size: 7.5rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#myButton{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.enabled{
+    background-color: blue;
+    color: white;
+}
+
+.hover{
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.199);
+    font-weight: bold;
+}
+
+.disabled{
+    background-color: gray;
+    color:azure;
+}
