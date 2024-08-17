@@ -78,8 +78,63 @@ ulElement.forEach((element) => {
     kid.style.backgroundColor = "green";
 });
 
-//nextElementSibling
+//.nextElementSibling
 
 const liss = document.getElementById("liTest");
 const rodzenstwo = liss.nextElementSibling;
 rodzenstwo.style.backgroundColor = "pink";
+
+//.previousElementSibling
+
+const poprzednieRodzenstwie =liss.previousElementSibling;
+poprzednieRodzenstwie.style.backgroundColor = "red";
+
+//.parentElement
+
+const rodzic = liss.parentElement;
+rodzic.style.border = "2px solid black";
+
+//.children
+
+const listaDoDzieciakow = document.getElementById("doTestowania");
+const dzieciaki = listaDoDzieciakow.children;
+
+Array.from(dzieciaki).forEach((element) => {
+    element.style.color = "white";
+
+});
+
+//dodawanie i zmienianie elementow HTML
+//tworzenie nowego elementu
+
+const newH1 = document.createElement("h1");
+
+//dodawanie atrybutow i wlasciwosci
+
+newH1.textContent = "Lubie programowac";
+newH1.id = "myH1";
+newH1.style.color = "tomato";
+newH1.style.textAlign = "center";
+//dodawanie elementu
+
+//document.body.append(newH1);//dodawanie na koniec dokumentu
+//document.body.prepend(newH1);//dodawanie na poczatek dokumentu
+
+document.getElementById("box1").append(newH1);
+
+//const box2 = document.getElementById("box2");
+//document.body.insertBefore(newH1,box2);
+
+//mozna jeszcze za posrednictwem elementu
+
+//const boxes = document.querySelectorAll(".box");
+//document.body.insertBefore(newH1,boxes[0]);
+
+
+//usuwanie elementu HTML
+
+//document.body.removeChild(newH1);//dziela jak znajdzuje sie bezposrednio w body
+
+document.getElementById("box1").removeChild(newH1);
+
+
