@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function komputery(brand,name,price){
+            return{
+                brand: brand,
+                name: name,
+                price: price,
+                showInfo: function(){
+                    console.log(this.brand,this.name,this.price)
+                }
+            }
+        }
+
+        const computer1 = komputery("dell","inspirion",3000);
+        computer1.showInfo();
+
+    </script>
+</body>
+</html>

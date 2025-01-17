@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Singleton = (function(){
+            let instance = null;
+            let privAppName = "TestAPP";
+
+            function Configuration(){
+                this.getAppName = function(){
+                    return privAppName;
+                }
+                this.setAppName = function(appName){
+                    privAppName = appName;
+                } 
+            }
+
+            return{
+                getInstance: function(){
+                    if(!instance){
+                        instance = new Configuration();
+                    }
+                    return instance;
+                },data: "test"
+            }
+        })();
+
+        console.log(Singleton)
+
+        const config = Singleton.getInstance();
+        console.log(config);
+        console.log(config.getAppName());
+
+
+        let AppSetting = (function(){
+            let instance = null;
+            let appName = "application 1";
+            let appTheme = " night mode";
+
+            function Configuration(){
+                this.getAppName = function(){
+                    return appName;
+                }
+
+                this.setAppName = function(name){
+                    appName = name;
+                }
+
+                this.getAppTheme = function(){
+                    return appTheme;
+                }
+
+                this.setAppTheme = function(theme){
+                    if(theme !== "night mode" && theme !== "light mode") return;
+                    appTheme = theme;
+                }
+            }
+            return{
+                getInstance: function(){
+                    if(!instance){
+                        instance = new Configuration();
+                    }
+                    return instance;
+                }
+            }
+        })();
+
+        const setttings = AppSetting.getInstance();
+        console.log(setttings);
+        console.log(setttings.getAppName());
+        setttings.setAppName("App 1");
+        console.log(setttings.getAppName());
+        console.log(setttings.getAppTheme());
+        setttings.setAppTheme("light mode");
+        console.log(setttings.getAppTheme());
+
+
+
+        class DBConnection{
+            dbName = "default";
+            dbUser = "admin";
+            dbPassword = "admin12345";
+
+            constructor(){
+                if(DBConnection.exists){
+                    return DBConnection.instance;
+                }
+                DBConnection.exists = true;
+                DBConnection.instance = this;
+
+                return this;
+            }
+        }
+
+        const dbConection1 = new DBConnection();
+        const dbConection2 = new DBConnection();
+
+        console.log(dbConection1 === dbConection2)
+    </script>
+
+    
+</body>
+</html>

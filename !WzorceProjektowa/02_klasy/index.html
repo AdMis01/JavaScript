@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Ticker{
+            constructor(name,surname,age,conutry) {
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.conutry = conutry;
+            }
+
+            printInfo(){
+                console.log(this.name,this.surname,this.age, this.conutry);
+            }
+        }
+
+        let osoba = new Ticker("imie","surname",33, "poland");
+        osoba.printInfo();
+
+        class Studio extends Ticker{
+            constructor(name,age,nazwa){
+                super(name,age)
+                this.nazwa = nazwa;
+            }
+            printInfo(){
+                //super(printInfo())wywołuje funkcje poprzedniej klasy z której dziedziczymy 
+                console.log(this.name, this.age,this.nazwa);
+            }
+        }
+
+        const test = new Studio("imie",33,"nazwa");
+        test.printInfo()
+    </script>
+</body>
+</html>
