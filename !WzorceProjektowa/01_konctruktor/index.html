@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wzorce</title>
+</head>
+<body>
+    
+    <script>
+        function Ticker(name, country){
+            this.name = name;
+            this.country = country;
+            this.printInfo = function(){
+                console.log(this.name,this.country);
+            }
+        }
+        //to lepiej stosowanie niż tego powyżej 
+        Ticker.prototype.printInfo2 = function(){
+            console.log(this.name, this.country);
+        }
+
+        const tesla = new Ticker("TSLA","USA");
+        tesla.printInfo();
+        tesla.printInfo2();
+
+        //pozyczenie konstruktora
+
+        function Shop(name, address){
+            this.name = name;
+            this.address = address;
+            this.shoppingCard = [];
+        }
+
+        Shop.prototype.addToCard = function(name,price){
+            this.shoppingCard.push({name: name, price: price});
+        }
+
+        function Pharmacy(name, address, brand){
+            Shop.call(this, name, address);
+            this.brand = brand;
+        }
+        Pharmacy.prototype = Object.create(Shop.prototype);
+        Pharmacy.prototype.constructor = Pharmacy;
+        Pharmacy.prototype.showCard = function(){
+            console.log(this.shoppingCard);
+        }
+
+        const pharmacy = new Pharmacy("apteka", "wawa", "mega");
+        console.log(pharmacy);
+
+        pharmacy.addToCard("wita", 40);
+        pharmacy.addToCard("banda", 30);
+
+    </script>
+</body>
+</html>
