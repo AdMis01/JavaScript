@@ -22,6 +22,31 @@
         const computer1 = komputery("dell","inspirion",3000);
         computer1.showInfo();
 
+
+        function BasicUser(email, password){
+            this.email = email;
+            this.password = password;
+            this.rank = "user";
+        }
+
+        function AdminUser(email, password){
+            BasicUser.call(this,email,password);
+            this.rank = "admin";
+        }
+
+        let userFkatory = {
+            getUser: function(email){
+                return new BasicUser(email,"21343");
+            },
+            getAdmin: function(email){
+                return new AdminUser(email,"22314");
+            }
+        }
+
+        let user1 = UserFactory.getUser();
+        console.log(user1);
+        let user2 = UserFactory.getAdmin();
+        console.log(user2);
     </script>
 </body>
 </html>
