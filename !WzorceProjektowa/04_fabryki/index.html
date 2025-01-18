@@ -43,10 +43,176 @@
             }
         }
 
-        let user1 = UserFactory.getUser();
+        let user1 = userFkatory.getUser();
         console.log(user1);
-        let user2 = UserFactory.getAdmin();
+        let user2 = userFkatory.getAdmin();
         console.log(user2);
+
+
+        let UserFactory = {
+            getUser:function (rank){
+                let user = null;
+                let email = rank + (Math.round(Math.random()*100))+"@exmaple.com";
+                switch(rank)
+                {
+                    case "user":
+                        user = new BasicUser(email,"123124");
+                        break;
+                    case "admin":
+                        user = new AdminUser(email, "sfdjklsfdajkl");
+                        break;    
+                }
+                user.traigingRequaitred = true;
+                user.showInfo = function(){
+                    console.log(this.name,this.rank);
+                }
+                return user;
+            }
+        };
+
+        const uzytkownik = UserFactory.getUser("user");
+        console.log(uzytkownik);
+        const administrator = UserFactory.getUser("admin");
+        console.log(administrator);
+
+        function Bike(name){
+            this.name = name;
+            this.numWheels = 2;
+            this.info = function(){
+                console.log(this.name,this.numWheels);
+            }
+        }
+
+        function BikeFactory(){
+            return new Bike("Romet");
+        }
+        function Car(name){
+            this.name = name;
+            this.numWheels = 4;
+            this.info = function(){
+                console.log(this.name,this.numWheels);
+            }
+        }
+
+        function CarFactory(){
+            return new Car("Ford");
+        }
+
+        function Truck(name){
+            this.name = name;
+            this.numWheels = 6;
+            this.info = function(){
+                console.log(this.name,this.numWheels);
+            }
+        }
+
+        function TruckFactory(){
+            return new Truck("Kawasaki");
+        }
+
+
+        let AbstractVehicleFactory = (function(){
+            let types = [];
+            return{
+                registerType: function(type,faktory){
+                    let vehicle = faktory();
+                    if(vehicle.numWheels && vehicle.numWheels > 0 && vehicle.name && vehicle.info){
+                        types[type.toLowerCase()] = faktory;
+                    }
+                },
+                getTypes: function(){
+                    return types;
+                },
+                getVehicle: function(type){
+                    let vehicleType = types[type.toLowerCase()];
+                    if(vehicleType){
+                        return vehicleType();
+                    }
+                }
+            }
+        })();
+
+
+        AbstractVehicleFactory.registerType("bike",BikeFactory);
+        AbstractVehicleFactory.registerType("car",CarFactory);
+        AbstractVehicleFactory.registerType("truck",TruckFactory);
+
+        console.log(AbstractVehicleFactory.getTypes());
+        console.log(AbstractVehicleFactory.getVehicle("bike"));
+        console.log(AbstractVehicleFactory.getVehicle("car"));
+        console.log(AbstractVehicleFactory.getVehicle("truck"));
+
+        let speaker = function(state){
+            return{
+                speak: function(){
+                    console.log(state.name,state.words);
+                }
+            }
+        }
+
+        let walker = function(state){
+            return{
+                walk: function(){
+                    console.log(state.name,"chodzi");
+                },
+                run: function(){
+                    console.log(state.name,"biegnie");
+                }
+            }
+        }
+
+        let person = function(name,age){
+            let state = {
+                name: name,
+                age: age,
+                words: "hel"
+            };
+            return Object.assign(
+                state,
+                speaker(state),
+                walker(state)
+            )
+        }
+
+        let person1 = person("adam");
+        person1.speak();
+        person1.run();
+        person1.walk();
+
+        function Task(name, description, isDone) {
+            this.name = name;
+            this.description = description;
+            this.isDone = isDone;
+        }
+
+        function TaskBuilder() {
+            let name, description, isDone;
+
+            return {
+                setName: function(name) {
+                    this.name = name;
+                    return this;
+                },
+                setDescription: function(description) {
+                    this.description = description;
+                    return this;
+                },
+                setDone: function(isDone) {
+                    this.isDone = isDone;
+                    return this;
+                },
+                build: function () {
+                    return new Task(this.name, this.description, this.isDone);
+                }
+            };
+        }
+
+        let task = (new TaskBuilder()).setName("Task #1")
+        .setDescription("Description for task #1")
+        .setDone(false)
+        .build();
+
+        console.log(task);
     </script>
 </body>
 </html>
