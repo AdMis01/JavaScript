@@ -73,19 +73,50 @@
         let result = creditRequest.applyFor(person, 20000);
         console.log(result);
 
+        //
+        function Transorpt(credent){
+            this.send = function(address, weight){
+                return 140;
+            }
+        }
 
+        let address = {country: "DE"};
+        let crednet = {token: "12345"};
+        let oldTransport = new Transorpt(crednet);
+        let oldPrice = oldTransport.send(address, 10);
 
+        function NewTransport(){
+            return{
+                login: function(creadent){
+                    console.log("log in");
+                },
+                setPriority: function(piority){
+                    console.log(piority);
 
+                },
+                setDestination: function(address){
+                    console.log(address);
+                },
+                getPrice: function(weight){
+                    return 120;
+                }
+            }
+        }
 
+        function TransportAdapter(credentials){
+            let shipping = new NewTransport();
+            shipping.login(credentials);
+            return{
+                send: function(address,weight){
+                    shipping.setPriority("standard");
+                    shipping.setDestination(address);
+                    return shipping.getPrice(weight);
+                }
+            }
+        }
 
-
-
-
-
-
-    
-
-
+        let adapter = new TransportAdapter(crednet);
+        let newPrice = adapter.send(address, 10);
     </script>
 </body>
 </html>
