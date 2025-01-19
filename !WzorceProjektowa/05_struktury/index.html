@@ -117,6 +117,84 @@
 
         let adapter = new TransportAdapter(crednet);
         let newPrice = adapter.send(address, 10);
+
+
+        function Uber(name,address,email){
+            this.name = name;
+            this.address = address;
+            this.email = email;
+        }
+
+        function decoderToEmpoloys(employ,data){
+            employ.company = (data.company || "exmaple ltd.");
+            employ.salary = data.salary || 6000;
+            employ.tasks = [];
+
+            employ.addTask = function(task){
+                this.tasks.push(task);
+            },
+            employ.clearTasks = function(){
+                this.tasks = []
+            }
+            return employ;
+        }
+
+        let user1 = new Uber("dasia", "wawa","dada@gamil");
+        let emplowy = decoderToEmpoloys(user1, {
+            salary: 10000
+        });
+
+        emplowy.addTask("nowe zadanie");
+        console.log(emplowy);
+
+        
+        //fly weight
+
+        function Flyweight(brand, cpu, ram) {
+            this.brand = brand;
+            this.cpu = cpu;
+            this.ram = ram;
+        }
+
+        function Computer(brand, cpu, ram, color, modelId) {
+            this.flyweight = FlyweightFactory.get(brand, cpu, ram);
+            this.color = color;
+            this.modelId = modelId;
+        }
+
+        const FlyweightFactory = (function() {
+            let flyweights = {};
+
+            return {
+                get: function(brand, cpu, ram) {
+                    let propName = `${brand}_${cpu}_${ram}`;
+                    if(!flyweights[propName]) {
+                        flyweights[propName] = new Flyweight(brand, cpu, ram);
+                    }
+
+                    return flyweights[propName];
+                },
+
+                count: function() {
+                    return Object.keys(flyweights).length;
+                }
+            }
+        })();
+
+        let shop = [];
+
+        shop.push( new Computer("Dell", "Intel", "16gb", "black", "ASDF") );
+        shop.push( new Computer("Dell", "Intel", "16gb", "silver", "ASDF5") );
+        shop.push( new Computer("Dell", "Intel", "16gb", "red", "ASDF3") );
+        shop.push( new Computer("Dell", "Intel", "16gb", "white", "ASDF2") );
+        shop.push( new Computer("Asus", "Amd", "32gb", "black", "sdfsdf1") );
+        shop.push( new Computer("Asus", "Amd", "32gb", "red", "sdfsdf2") );
+        shop.push( new Computer("Asus", "Amd", "32gb", "silver", "sdfsdf3") );
+        shop.push( new Computer("Asus", "Amd", "32gb", "white", "sdfsdf4") );
+
+        console.log(shop);
+        console.log(FlyweightFactory.count()); // 1
+
     </script>
 </body>
 </html>

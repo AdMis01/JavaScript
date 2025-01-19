@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function User(name) {
+            this.name = name;
+            this.chatRoom = null;
+        }
+
+        User.prototype.send = function(msg, to) {
+            this.chatRoom.send(msg, this, to);
+        }
+
+        User.prototype.receive = function(msg, from) {
+            console.log("from:", from.name, "to user", 
+                this.name, " msg:", msg);
+        }
+
+
+        let chatRoom = function() {
+            let users = {};
+
+            return {
+                register: function(user) {
+                    if (!users[user.name]) {
+                        users[user.name] = user;
+                        user.chatRoom = this;
+                    } 
+                },
+                send: function(msg, from, to) { 
+                    if (to) {
+                        to.receive(msg, from);
+                    } else {
+                        for ( const key in users ) {
+                            if (users[key] !== from) {
+                                users[key].receive(msg, from);
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+        const chat = chatRoom();
+        let user1 = new User("Asia");
+        chat.register(user1);
+
+        let user2 = new User("Kasia");
+        chat.register(user2);
+
+        let user3 = new User("Olek");
+        chat.register(user3);
+
+        user1.send("Witam wszystkich!");
+        user2.send("Cześć!");
+
+        user1.send("Cześć Kasia!!!", user2);
+
+        
+        
+            //Observer - Behavioral pattern   
+
+        function JobPortal() {
+            this.observers = [];
+
+            this.subscribe = function(observer) {
+                this.observers.push(observer);
+            }
+
+            this.unsubscribe = function(observer) {
+                let index = this.observers.findIndex(
+                    o => o === observer
+                );
+
+                this.observers.splice(index, 1);
+            }
+
+            this.addNewListing = function(offer) {
+                this.observers.forEach(
+                    o => o.notify(offer)
+                );
+            }
+        }
+
+
+        function Candidate(name) {
+            this.name = name;
+            this.notify = function(offer) {
+                console.log(this.name, "otrzymał ofertę:", offer);
+            }
+        }
+
+        const jobPortal = new JobPortal();
+        jobPortal.subscribe( new Candidate("Ola") );
+        const candidate2 = new Candidate("Kasia"); 
+        jobPortal.subscribe( candidate2);
+        jobPortal.subscribe( new Candidate("Daniel") );
+        jobPortal.subscribe( new Candidate("Piotr") );
+
+        jobPortal.addNewListing("Fullstack Web Developer");
+
+        jobPortal.unsubscribe(candidate2);
+
+        jobPortal.addNewListing("Senior Fullstack Web Developer");
+
+
+
+        const arr = ["wawa","poz","kark"];
+        function iterate(arr,callback,schope){
+            schope = schope || arr;
+
+            for(let index = 0;index<arr.length; index++){
+                const el = arr[index];
+                callback.call(schope,index,arr[index]);
+            }
+        }
+
+        iterate(arr,function(index, el){
+            console.log(index,el)
+        })
+
+        let Shipping = function(){
+            this.company = "example";
+        }
+
+        Shipping.prototype.setStrategy = function(company){
+            this.company = company;
+        }
+        Shipping.prototype.calculate = function(parcel){
+            return this.company.calculate(parcel)
+        }
+
+        function UPS(){
+            this.calculate = function(parcel){
+                return 26;
+            }
+        }
+
+        function DHL(){
+            this.calculate = function(parcel){
+                return 30
+            }
+        }
+
+        let parcel = {from: "PL", to: "IT"};
+        let ups = new UPS();
+        let dhl = new DHL();
+
+        const shipping = new Shipping();
+        shipping.setStrategy(ups);
+        console.log(shipping.calculate());
+        shipping.setStrategy(dhl);
+        console.log(shipping.calculate());
+
+    </script>
+</body>
+</html>
